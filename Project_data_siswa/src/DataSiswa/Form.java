@@ -1,6 +1,6 @@
 /*Package Name*/
 package DataSiswa;
-/*Untuk Memanggil beberapa variable dari "JDBC MySql Connection"*/
+/*Untuk Memanggil beberapa variable dari Library "JDBC MySql Connection"*/
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
