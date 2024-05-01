@@ -1,6 +1,6 @@
-
+/*Package Name*/
 package DataSiswa;
-
+/*Untuk Memanggil beberapa variable dari "JDBC MySql Connection"*/
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,8 +10,9 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
+/*Nama Class*/
 public class Form extends javax.swing.JFrame {
+    /*Variable Connect To Database*/
 public Connection con;
 public Statement st;
 public ResultSet rs;
@@ -26,7 +27,7 @@ public DefaultTableModel model;
         tabel.setModel(model);
         insert();
     }
-    
+    /*Syntax Untuk Menampilkan data ke dalam tabel*/
     public void insert() {
         KoneksiDatabase kon = new KoneksiDatabase();
         try {
@@ -250,11 +251,14 @@ public DefaultTableModel model;
         // TODO add your handling code here:
     }//GEN-LAST:event_input_jurusanActionPerformed
 
+
+    /*Syntax untuk button tambah / add*/
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         
         
          try{
+             /*Untuk memilih database mana yang akan di gunakan*/
             String url="jdbc:mysql://localhost:3306/db_siswa";
             String user="root";
             String pass="";
@@ -275,13 +279,16 @@ public DefaultTableModel model;
         }catch(Exception e){
             System.out.println("gagal "+e.getMessage());
         }
-         //UPDATR TABEL AUTOMATIC
+         /*Update Tabel Secara Otomatis*/
           String[] header = {"NIPD", "NAMA", "JURUSAN", "ALAMAT"};
         model = new DefaultTableModel (header, 0);
         tabel.setModel(model);
         insert();
     }//GEN-LAST:event_btnAddActionPerformed
 
+
+
+    /*Syntax Untuk Button Preview*/
     private void btnPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviewActionPerformed
         // TODO add your handling code here:
         
@@ -291,6 +298,9 @@ public DefaultTableModel model;
         insert();
     }//GEN-LAST:event_btnPreviewActionPerformed
 
+
+
+    /*Syntax untuk tabel (yg berfungsi untuk ketika kita klik data yang ada di tabel dapat muncul pada kolom TextField)*/
     private void tabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMouseClicked
         // TODO add your handling code here:
         
@@ -309,6 +319,11 @@ public DefaultTableModel model;
         input_alamat.setText(alamat);
     }//GEN-LAST:event_tabelMouseClicked
 
+
+
+
+
+    /*Syntax Button Change / Update*/
     private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
         // TODO add your handling code here:
         con = KoneksiDatabase.getKoneksi();
@@ -325,13 +340,18 @@ public DefaultTableModel model;
         } catch (Exception e) {
           JOptionPane.showMessageDialog(null, "gagal di edit" +e.getMessage());
         }
-        //upadate tabel automatic
+        /*Update Tabel Secara Otomatis*/
          String[] header = {"NIPD", "NAMA", "JURUSAN", "ALAMAT"};
         model = new DefaultTableModel (header, 0);
         tabel.setModel(model);
         insert();
     }//GEN-LAST:event_btnChangeActionPerformed
 
+
+
+
+
+    /*Syntax untuk Button Delete*/
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
          con = KoneksiDatabase.getKoneksi();
